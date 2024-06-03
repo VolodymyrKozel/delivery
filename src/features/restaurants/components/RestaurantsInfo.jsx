@@ -4,17 +4,16 @@ import React from "react";
 import styled from "styled-components/native";
 
 const Title = styled.Text`
-  padding: 16px;
-  font-size: 24px;
-  font-weight: bold;
+  padding: ${({ theme }) => theme.space[3]};
+  color: ${({ theme }) => theme.colors.ui.primary};
 `;
 
 const RestaurantCard = styled(Card)`
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.bg.primary};
 `;
 const RestaurantCardCover = styled(Card.Cover)`
-  padding: 16px;
-  background-color: white;
+  padding: ${({ theme }) => theme.space[3]};
+  background-color: ${({ theme }) => theme.colors.bg.primary};
 `;
 
 export const RestaurantsInfo = ({ restaurant = {} }) => {
@@ -32,7 +31,7 @@ export const RestaurantsInfo = ({ restaurant = {} }) => {
   return (
     <RestaurantCard elevation={5}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
-      <Title style={styles.title}>{name}</Title>
+      <Title>{name}</Title>
     </RestaurantCard>
   );
 };
